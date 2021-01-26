@@ -26,7 +26,7 @@ import math
 
 class Robot(QMainWindow, MainView.Ui_MainWindow):
 
-    TIME_RATE = 2
+    TIME_RATE = 1
 
     def __init__(self,parent=None):
         
@@ -39,7 +39,7 @@ class Robot(QMainWindow, MainView.Ui_MainWindow):
         #self.setWindowFlag(Qt.FramelessWindowHint)
         self.setWindowIcon(QtGui.QIcon('images/robot.png'))
         self.connectActions()
-        #self.addToolBar(NavigationToolbar(self.Container.canvas, self))
+        self.addToolBar(NavigationToolbar(self.Container.canvas, self))
         self.afficheur_pk.setVisible(False)
 
         self.equation = ""
@@ -136,6 +136,7 @@ class Robot(QMainWindow, MainView.Ui_MainWindow):
             dest = np.array([dest_x, self.bot.eqT(dest_x), 0, 1])
 
             self.afficheur_pk.setText("P{} = ({}, {})".format(i, dest[0], dest[1]))
+            print("P{} = ({}, {})".format(i, dest[0], dest[1]))
 
             #Use Paul method to find angles
             self.bot.mgi(dest)            

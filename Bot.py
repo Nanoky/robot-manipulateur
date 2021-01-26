@@ -127,9 +127,6 @@ class Bot:
     def eqT(self, x):
         return self.ta * x + self.tb
 
-    def getPkCoord(self, b):
-        pass
-
     def getStep(self, a, b, nb):
         return (b[0] - a[0]) / nb
 
